@@ -3,6 +3,7 @@ class Vips < Formula
   homepage "https://github.com/jcupitt/libvips"
   url "https://github.com/jcupitt/libvips/releases/download/v8.4.6/vips-8.4.6.tar.gz"
   sha256 "fc9794ea49d85e8206bd5ac022973455320f303beefa318f3997c7e402520579"
+  revision 1
 
   depends_on "pkg-config" => :build
   depends_on "fontconfig"
