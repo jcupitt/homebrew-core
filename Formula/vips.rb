@@ -1,9 +1,8 @@
 class Vips < Formula
   desc "Image processing library"
-  homepage "http://www.vips.ecs.soton.ac.uk/"
-  url "http://www.vips.ecs.soton.ac.uk/supported/current/vips-8.4.5.tar.gz"
-  sha256 "0af73a51f53250ca240a683ba0d652003744382b78d8a10152c8f1bd019897fd"
-  revision 1
+  homepage "https://github.com/jcupitt/libvips"
+  url "https://github.com/jcupitt/libvips/releases/download/v8.4.6/vips-8.4.6.tar.gz"
+  sha256 "fc9794ea49d85e8206bd5ac022973455320f303beefa318f3997c7e402520579"
 
   depends_on "pkg-config" => :build
   depends_on "fontconfig"
@@ -36,6 +35,7 @@ class Vips < Formula
   depends_on "webp" => :optional
   depends_on "homebrew/science/cfitsio" => :optional
   depends_on "homebrew/science/c" => :optional
+  depends_on "homebrew/science/libmatio" => :optional
 
   def install
     args = %W[
