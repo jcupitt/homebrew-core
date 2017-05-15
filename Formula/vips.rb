@@ -1,9 +1,8 @@
 class Vips < Formula
   desc "Image processing library"
   homepage "https://github.com/jcupitt/libvips"
-  url "https://github.com/jcupitt/libvips/releases/download/v8.4.6/vips-8.4.6.tar.gz"
-  sha256 "fc9794ea49d85e8206bd5ac022973455320f303beefa318f3997c7e402520579"
-  revision 1
+  url "https://github.com/jcupitt/libvips/releases/download/v8.5.4/vips-8.5.4.tar.gz"
+  sha256 "fc641833a080319eb03d7e251708ebbcf87d2df507604eb4b32b19308000578e"
 
   depends_on "pkg-config" => :build
   depends_on "fontconfig"
