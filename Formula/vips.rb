@@ -27,7 +27,7 @@ class Vips < Formula
   depends_on "orc"
   depends_on "pango"
   depends_on "poppler"
-  depends_on "pygobject3"
+  depends_on "pygobject3" => 'with-python3'
   depends_on "graphicsmagick" => :optional
   depends_on "imagemagick" => :optional
   depends_on "jpeg-turbo" => :optional
