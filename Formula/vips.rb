@@ -46,8 +46,8 @@ class Vips < Formula
     end
 
     if build.with? "jpeg-turbo"
-      ENV["JPEG_CFLAGS"] = "-I#{Formula["jpeg-turbo"].opt_include}"
-      ENV["JPEG_LIBS"] = "-L#{Formula["jpeg-turbo"].opt_lib} -ljpeg"
+      ENV.prepend_path "PKG_CONFIG_PATH",
+        Formula["jpeg-turbo"].opt_lib/"pkgconfig"
     end
 
     args << "--without-libwebp" if build.without? "webp"
