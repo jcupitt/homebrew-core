@@ -25,7 +25,6 @@ class Vips < Formula
   depends_on "little-cms2"
   depends_on "orc"
   depends_on "pango"
-  depends_on "pygobject3"
   depends_on "fftw" => :recommended
   depends_on "poppler" => :recommended
   depends_on "graphicsmagick" => :optional
@@ -44,6 +43,11 @@ class Vips < Formula
 
     if build.with? "graphicsmagick"
       args << "--with-magick" << "--with-magickpackage=GraphicsMagick"
+    end
+
+    if build.with? "jpeg-turbo"
+      ENV["JPEG_CFLAGS"] = "-I#{Formula["jpeg-turbo"].opt_include}"
+      ENV["JPEG_LIBS"] = "-L#{Formula["jpeg-turbo"].opt_lib} -ljpeg"
     end
 
     args << "--without-libwebp" if build.without? "webp"
