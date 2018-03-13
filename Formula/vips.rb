@@ -51,6 +51,11 @@ class Vips < Formula
         Formula["jpeg-turbo"].opt_lib/"pkgconfig"
     end
 
+    if build.with? "mozjpeg"
+      ENV.prepend_path "PKG_CONFIG_PATH",
+        Formula["mozjpeg"].opt_lib/"pkgconfig"
+    end
+
     args << "--without-libwebp" if build.without? "webp"
 
     system "./configure", *args
