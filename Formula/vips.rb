@@ -11,6 +11,7 @@ class Vips < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "cfitsio"
   depends_on "fftw"
   depends_on "fontconfig"
   depends_on "gettext"
@@ -20,6 +21,8 @@ class Vips < Formula
   depends_on "jpeg"
   depends_on "libexif"
   depends_on "libgsf"
+  depends_on "libheif"
+  depends_on "libmatio"
   depends_on "libpng"
   depends_on "librsvg"
   depends_on "libtiff"
@@ -30,9 +33,6 @@ class Vips < Formula
   depends_on "pango"
   depends_on "poppler"
   depends_on "webp"
-  depends_on "libheif"
-  depends_on "libmatio"
-  depends_on "cfitsio"
 
   def install
     args = %W[
