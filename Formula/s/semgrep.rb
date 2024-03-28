@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/semgrep/semgrep.git",
-      tag:      "v1.65.0",
-      revision: "59a374abf873866d72fcc03d31384495acb94062"
+      tag:      "v1.66.2",
+      revision: "b4ff22a91dc40b8b29abd3474019abc296a693e4"
   license "LGPL-2.1-only"
   head "https://github.com/semgrep/semgrep.git", branch: "develop"
 
@@ -15,13 +15,13 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "f383285ff4cdf95f7395d9b7b1e9e61adead1522ace6254e049f0f888c9e034e"
-    sha256 cellar: :any,                 arm64_ventura:  "4968a07c639f83fe8944337aeaf08a7fec6f0b7ebaf595fbca9dad7e82f2fa27"
-    sha256 cellar: :any,                 arm64_monterey: "62e4a5746c6c3fc656eda79a29535564e217f24d31dfb4352955330c6c94e907"
-    sha256 cellar: :any,                 sonoma:         "96ecddd2d2d8e9129ca35e3374a59249e4f0184b57e4c6ed96e9f14606eb9958"
-    sha256 cellar: :any,                 ventura:        "d83500a5693960e954f75ff3a2d8b4b04773f37ddd2202027d5ba218c0c56ec1"
-    sha256 cellar: :any,                 monterey:       "b345e5d1a0e17178f278b794252ff0f6d419e4f5db010509cb0a3d1b8ccc14d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "701682fb4c3a8ce32edd4b83142cb291f6fa8635c20659d2feccbf07ffa6278f"
+    sha256 cellar: :any,                 arm64_sonoma:   "1eb07fd86c6889a8a4e831830442a2723ed1dfb8bbf3b4ab9c5014f936df0b4d"
+    sha256 cellar: :any,                 arm64_ventura:  "076af5a2953404d074195abbc95b1f7ec4a926a5c3fb829bc78bc474f0b97f24"
+    sha256 cellar: :any,                 arm64_monterey: "3108a83afb1f60d92c3714af48f14f58b141dc2e3af7be1c11a7dd15e94c468d"
+    sha256 cellar: :any,                 sonoma:         "f1718cf32d21503394a03a25c700e5f47656d3dbbd006b5d1a4fef646c99d7e1"
+    sha256 cellar: :any,                 ventura:        "7182ddeeaa86bfe3cc3ab6ad61df3d97c82b999ba9cff0712dc2119be32bb481"
+    sha256 cellar: :any,                 monterey:       "1a72e5d34f19dbffd559d838d6b80956c4f29e2d4a06ef918b86204d23b7bfa4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "31bc6e17d9483e91c35851709bed22eb9607dc21b2dd30506dbefe1cbe8b5667"
   end
 
   depends_on "autoconf" => :build
@@ -142,8 +142,8 @@ class Semgrep < Formula
   end
 
   resource "referencing" do
-    url "https://files.pythonhosted.org/packages/21/c5/b99dd501aa72b30a5a87d488d7aa76ec05bdf0e2c7439bc82deb9448dd9a/referencing-0.33.0.tar.gz"
-    sha256 "c775fedf74bc0f9189c2a3be1c12fd03e8c23f4d371dce795df44e06c5b412f7"
+    url "https://files.pythonhosted.org/packages/59/d7/48b862b8133da2e0ed091195028f0d45c4d0be0f7f23dbe046a767282f37/referencing-0.34.0.tar.gz"
+    sha256 "5773bd84ef41799a5a8ca72dc34590c041eb01bf9aa02632b4a973fb0181a844"
   end
 
   resource "requests" do
@@ -192,6 +192,10 @@ class Semgrep < Formula
   end
 
   def install
+    # Work around ruamel.yaml.clib not building on Xcode 15.3, remove after a new release
+    # has resolved: https://sourceforge.net/p/ruamel-yaml-clib/tickets/32/
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+
     ENV.deparallelize
     Dir.mktmpdir("opamroot") do |opamroot|
       ENV["OPAMROOT"] = opamroot

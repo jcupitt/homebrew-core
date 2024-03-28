@@ -1,18 +1,18 @@
 class ReFlex < Formula
   desc "Regex-centric, fast and flexible scanner generator for C++"
   homepage "https://www.genivia.com/doc/reflex/html"
-  url "https://github.com/Genivia/RE-flex/archive/refs/tags/v4.1.1.tar.gz"
-  sha256 "ffbb2dfb98a7d62f41a192a6409f39fef6b8c5f3333e87f063a70c364adb2f0f"
+  url "https://github.com/Genivia/RE-flex/archive/refs/tags/v4.2.0.tar.gz"
+  sha256 "deb0fbfe89fb3f47c5934138537ab9ac4cb31d3c952ce7e8243d79f2067c5dd1"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5799dd4323146b3f0a70f1614c2b0dccf9b904c482fc6c44cb8f165f02dc0585"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b42aa699412511e87f4650dac31bfdc96bca5e9d55e06601bd0ef484c3e81d27"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ee1725a63d5620ae1bd940e34067a8b5f2ed8dea22eb4b96c0e76231f1146533"
-    sha256 cellar: :any_skip_relocation, sonoma:         "96276a42eafe04a411c9d83bbc287d04019ec67a4bfdf842120f9f261225840b"
-    sha256 cellar: :any_skip_relocation, ventura:        "e36c11156d5230611235591f03c836d31622cf12c4c49ae1d00d998d0299204e"
-    sha256 cellar: :any_skip_relocation, monterey:       "f14bbf3ea6199ad0f316c6ccdbacab210a74347897e5201bdf347f919b91f516"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "86dfc822b8345520cef598eab63e3f5d338fd6c6de29c08c9b28de7da2af19ed"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8a7de5079585843c32006586ae24f6e0672a3bfe028a96d4553c541f6cfa0da7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1473ff1ecc41500c0835a061c3ba48a08b4dfade3da0e8ac8539ac5a352bfb85"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "426772211dfc03bb003e5f1b01493b32054f24531a945a70695750d5f5d373c5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "48739d3fb8180455d2bd0aec50cb7cbf213b621c775673795aa1d04e272f3db4"
+    sha256 cellar: :any_skip_relocation, ventura:        "eb42a6d24c108af785582ee2ded7f6f1bb3ba43c2940468ce414efb0c75ff426"
+    sha256 cellar: :any_skip_relocation, monterey:       "d49b2e0edfba3f3963a49835635e7fafc7d1a844d689e77a936c4fd05ea67d5d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed30398c010f639291b7495862afe384471bea31fcc5b285c7e8957902c888b3"
   end
 
   depends_on "pcre2"
